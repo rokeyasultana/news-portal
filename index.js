@@ -88,15 +88,14 @@ const displayNews = (articles, name) => {
        const newsChildDiv = document.createElement('div');
        newsChildDiv.classList.add('card', 'mb-3', 'p-3')
        newsChildDiv.innerHTML = `
-   <div class="card card-side w-50 bg-base-100 shadow-xl">
-  <figure><img src=${article.image_url} alt="Movie"></figure>
+   <div  class="card lg:card-side bg-base-100 shadow-xl">
+  <figure><img  class= "responsive"src=${article.image_url} alt="Movie"></figure>
   <div class="card-body">
     <h2 class="card-title">${article.title}</h2>
     <p>${article.details.slice(0, 300)}...</p>
     <div class="avatar">
     <div class="w-24 rounded-full">
-      <img style="{
-         " src='${article.author.img}' />
+      <img src='${article.author.img}' />
     </div>
   </div>
     <p>${article.author.name ? article.author.name : 'Authors not found'}</p>
@@ -118,7 +117,7 @@ const displayNews = (articles, name) => {
      
    
       <!-- The button to open modal -->
-      <label  onclick="details('${article._id}')" for="my-modal-6" class="btn modal-button">open modal</label>
+      <label  onclick="details('${article._id}')" for="my-modal-6" class="btn modal-button">News Details</label>
       </div>
   </div>
 </div>
