@@ -139,12 +139,15 @@ const displayModal = info => {
    const  modalFieldParent = document.getElementById('modal-body');
    // console.log(modalField);
 
-   modalFieldParent.innerHTM = "";
+   modalFieldParent.innerHTML = "";
    const modalFieldChild = document.createElement('div');
    modalFieldChild .classList.add('card')
-
+   
    modalFieldChild .innerHTML = `
    <div class="card w-96 bg-base-100 shadow-xl">
+   <div class="modal-action">
+      <label for="my-modal-6" class="btn">X</label>
+    </div>
    <h2 class= "text-rose-500 text-2xl mb-3 text-center">News Details</h2>
    <figure><img src='${info.image_url}' alt= /></figure>
    <div class="avatar">
@@ -164,11 +167,12 @@ const displayModal = info => {
      <i class="fa-solid fa-star-half-stroke"></i></</p>
      
    </div>
+   
  </div>
 
    `
    modalFieldParent.appendChild( modalFieldChild);
- 
+
 }
 
 catagoriesClick('08', 'All News');
