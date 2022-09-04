@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The News Room</title>
+    <script src="https://kit.fontawesome.com/9b374be581.js" crossorigin="anonymous"></script>
 
-<!-- daisyui -->
-
+    <!-- daisyui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
         <!-- tailwind css  -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,19 +36,50 @@
 
 <section>
   <div id="category" class="grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-2 gap-2 bg-stone-200 ">
-    <!-- <div>
-      <ul  class="menu  text-black p-2 rounded-box">
-      <li><a>Item 1</a></li>
-      <li><a>Item 2</a></li>
-      <li><a>Item 3</a></li>
-  </ul>
-    </div> -->
   </div>
     
 </section>
    </main>
     
 
+   <!-- news count -->
+   <!-- ----------item count div ---------------  -->
+   <div id="counting" class="mt-5">
+
+  </div>
+<!-- sort view -->
+
+<section class=" ml-14 mr-14 " id="sort">
+  <div class="flex  space-x-72 ">
+    <div class="my-2">
+      <label class="text-2xl" for="sort">Sort by view:</label>
+      <select id="sort" name="list" form="form">
+          <option value="most view">Most Viewed</option>
+          <option value="default">Default</option>
+
+      </select>
+  </div>
+  <div class="my-2 ">
+      
+      <button class="btn btn-outline ">Today's Pick</button>
+      <button class="btn btn-outline mt-2">Tranding</button>
+  </div>
+  </div>
+</section>
+
+<!-- data not found -->
+<section id="no-data" class="d-none">
+  <div class="fs-1 fw-bold text-center">
+      <h1><span class="text-danger">SORRY!</span> <br> No news found in this category</h1>
+  </div>
+</section>
+
+<!-- details -->
+<section class="my-4">
+  <div id="news-field">
+
+  </div>
+</section>
 <!-- spinner -->
    <section>
     <div id="spinner" class="flex items-center justify-center">
@@ -57,6 +88,9 @@
         </div>
       </div>
    </section>
+
+
+
     <!-- js file -->
     <script src="index.js"></script>
 </body>
