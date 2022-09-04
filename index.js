@@ -1,21 +1,16 @@
 // Spinner
 
 const spinner = document.getElementById('spinner');
-spinner.style.display = 'none';
+// spinner.style.display = 'none';
 
-// function hideloader() {
-  
-  
-//    document.getElementById('spinner')
-//        .style.display = 'none';
-// }
+
 const toggleSpinner = isLoading => {
    const spinnerField = document.getElementById('spinner');
    if (isLoading === true) {
-       spinnerField.classList.remove('d-none')
+       spinnerField.classList.remove('hidden')
    }
    else {
-       spinnerField.classList.add('d-none')
+       spinnerField.classList.add('hidden')
    }
 };
 
@@ -66,10 +61,10 @@ const displayNews = (articles, name) => {
    // no data found 
    const noData = document.getElementById('no-data');
    if (articles.length === 0) {
-       noData.classList.remove('d-none')
+       noData.classList.remove('hidden')
    }
    else {
-       noData.classList.add('d-none')
+       noData.classList.add('hidden')
    }
 
    //news count 

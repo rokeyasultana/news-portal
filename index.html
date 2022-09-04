@@ -42,7 +42,12 @@
 </section>
    </main>
     
-
+<!-- spinner -->
+<div id="spinner" class="flex justify-center items-center hidden">
+  <div class=" spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
    <!-- news count -->
    <!-- ----------item count div ---------------  -->
    <div id="counting" class="mt-5">
@@ -69,10 +74,10 @@
 </section>
 
 <!-- data not found -->
-<section id="no-data" class="d-none">
-  <div class="fs-1 fw-bold text-center">
-     
-  </div>
+<section id="no-data" class="hidden">
+  <div class=" text-red-500 text-center">
+  <h1><span class="text-danger ">SORRY!!!</span> <br> No news found.</h1>
+</div>
 </section>
 
 
@@ -102,12 +107,7 @@
 </div>
 </section>
 
-<!-- spinner -->
-<div id="spinner" class="flex justify-center items-center">
-  <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+
 <!-- footer -->
 
 <section class="mt-96">
