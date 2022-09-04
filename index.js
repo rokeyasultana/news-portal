@@ -3,6 +3,12 @@
 const spinner = document.getElementById('spinner');
 spinner.style.display = 'none';
 
+// function hideloader() {
+  
+  
+//    document.getElementById('spinner')
+//        .style.display = 'none';
+// }
 const toggleSpinner = isLoading => {
    const spinnerField = document.getElementById('spinner');
    if (isLoading === true) {
@@ -47,8 +53,6 @@ const catagoriesClick = (id, name) => {
    fetch(url)
        .then(res => res.json())
        .then(data => displayNews(data.data, name))
-
-      
        .catch(error => console.log(error));
 
 }
@@ -67,7 +71,7 @@ const displayNews = (articles, name) => {
    else {
        noData.classList.add('d-none')
    }
-   
+
    //news count 
    const sortId = document.getElementById('sort')
    const countId = document.getElementById('counting');
@@ -84,15 +88,15 @@ const displayNews = (articles, name) => {
        const newsChildDiv = document.createElement('div');
        newsChildDiv.classList.add('card', 'mb-3', 'p-3')
        newsChildDiv.innerHTML = `
-   
-   <div class="card card-side bg-base-100 shadow-xl">
+   <div class="card card-side w-50 bg-base-100 shadow-xl">
   <figure><img src=${article.image_url} alt="Movie"></figure>
   <div class="card-body">
     <h2 class="card-title">${article.title}</h2>
     <p>${article.details.slice(0, 300)}...</p>
     <div class="avatar">
     <div class="w-24 rounded-full">
-      <img src='${article.author.img}' />
+      <img style="{
+         " src='${article.author.img}' />
     </div>
   </div>
     <p>${article.author.name ? article.author.name : 'Authors not found'}</p>
@@ -111,11 +115,66 @@ const displayNews = (articles, name) => {
                            <i class="fa-solid fa-star-half-stroke"></i>
                        </div>
                    </div>
-      <button onclick="detailsBtn('${article._id}') class="btn btn-outline" >News Detail</button>
-    </div>
+     
+   
+      <!-- The button to open modal -->
+      <label  onclick="details('${article._id}')" for="my-modal-6" class="btn modal-button">open modal</label>
+      </div>
   </div>
 </div>
        `
        newsParentDiv.appendChild(newsChildDiv);
    })
 }
+// modal
+
+const details = id => {
+   // console.log(id)
+
+   const url = `https://openapi.programming-hero.com/api/news/${id}`;
+   fetch(url)
+       .then(res => res.json())
+       .then(data => displayModal(data.data[0]))
+       .catch(error => console.log(error))
+}
+
+const displayModal = info => {
+
+   // console.log(info)
+
+   const  modalFieldParent = document.getElementById('modal-body');
+   // console.log(modalField);
+
+   modalFieldParent.innerHTM = "";
+   const modalFieldChild = document.createElement('div');
+   modalFieldChild .classList.add('card')
+
+   modalFieldChild .innerHTML = `
+   <div class="card w-96 bg-base-100 shadow-xl">
+   <h2 class= "text-rose-500 text-2xl mb-3 text-center">News Details</h2>
+   <figure><img src='${info.image_url}' alt= /></figure>
+   <div class="avatar">
+  <div class="w-24 rounded-full mx-auto">
+    <img src='${info.author.img}'/>
+  </div>
+</div>
+   <div class="card-body">
+   <p>${info.details.slice(0, 400)}...</p>
+     <h2 class="card-title">${info.author.name ? info.author.name : 'Authors not found'}</h2>
+     <p>${info.author.published_date ? info.author.published_date : 'Publish date not found'}</p>
+     <p> ${info.rating.badge ? info.rating.badge : 'Badge not found'}</p>
+     <p></i>
+     <i class="fa-sharp fa-solid fa-star"></i>
+     <i class="fa-sharp fa-solid fa-star"></i>
+     <i class="fa-sharp fa-solid fa-star"></i>
+     <i class="fa-solid fa-star-half-stroke"></i></</p>
+     
+   </div>
+ </div>
+
+   `
+   modalFieldParent.appendChild( modalFieldChild);
+ 
+}
+
+catagoriesClick('08', 'All News');
